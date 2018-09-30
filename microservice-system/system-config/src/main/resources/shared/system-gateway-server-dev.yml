@@ -41,3 +41,31 @@ security:
   validate:
     code: false
   sessions: stateless #session是无状态的  每次链接都是作为一个新用户
+  oauth2:
+    client:
+      client-id: ENC(zE3YeYq8WynIuScwux8InRTVIL9zyr9d)
+      client-secret: ENC(9/c6SCnqKRaXrqNrXzndxf1647yHN4JM)
+    resource:
+      loadBalanced: true
+      token-info-uri: ${security.auth.server}/oauth/check-token #由资源服务器用来解码访问令牌
+      service-id: system-gateway-server
+      jwt:
+         #key-uri: ${security.auth.server}/oauth/token_key #使用JWT令牌，RSA公开密钥可以用于令牌验证
+         key-value: ENC(fmVD9Jt6YXP9Q+KBPU8/1cWgKn5WhlGuD10SzFADNz4=)
+urls:
+  collects:
+    - /mobile/**
+    - /auth/**
+    - /admin/code/*
+    - /admin/api/info
+    - /admin/api/userTree
+    - /admin/api/dictType/*
+    - /swagger-resources/**
+    - /swagger-ui.html
+    - /*/v2/api-docs
+    - /swagger/api-docs
+    - /webjars/**
+
+logging:
+  config: classpath:logback.xml
+
