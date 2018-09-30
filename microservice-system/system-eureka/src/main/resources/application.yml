@@ -1,0 +1,27 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: system-eureka-server
+  profiles:
+    active: dev
+security:
+  basic:
+    enabled: true
+  user:
+    name: liupeiqing
+    password: 3bB5ivE8
+
+---
+spring:
+  profiles: dev
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://liupeiqing:3bB5ivE8@localhost:8761/eureka  #客户端与服务端交互的zone的地址  zone类似于机房 eureka放在机房里面(zong)
+    server:
+      enable-self-preservation: false #Eureka自我保护机制以及心跳周期长会遇到 Eureka不剔除已关停的节点的问题，默认打开状态。建议生产环境打开此配置
+      eviction-interval-timer-in-ms: 4000 #清理间隔（单位毫秒，默认是60*1000）
+

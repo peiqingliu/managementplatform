@@ -1,0 +1,43 @@
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  zipkin:
+    rabbitmq:
+      queue: zipkin
+  sleuth:
+    sampler:
+      percentage: 1.0 #日志记录发送给采集器的概率,配置成1全量收集日志
+zuul:
+  ribbon:
+    eager-load:
+      enable: true
+      clients: system-auth-server,business-admin-server,business-pay-server #指定需要饥饿加载的客户端名称、服务名
+  ignoredServices: "*" #忽略的服务  除了配置的都忽略
+  host:  #设置超时时间
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000
+  routes:
+    business-admin-server:
+      path: /admin/**
+      serviceId: business-admin-server
+      stripPrefix: true #去掉前缀
+      sensitiveHeaders:  #设置头部敏感信息  有默认值 Cookie,Set-Cookie,Authorization
+  ratelimit: #限流
+    key-prefix: business-ratelimite
+    enabled: true
+    repository: REDIS  #使用redis存储，一定要大写！
+    behind-proxy: true
+    policies: #需要限流的服务
+      business-admin-server: #上面的服务
+        limit: 100  #每秒多少个请求
+        quota: 100
+        refresh-interval: 3 # 刷新时间 3秒内允许300个访问，平均每个请求2秒，并且要求总请求时间小于2400秒
+
+#授权 客户端配置
+security:
+  validate:
+    code: false
+  sessions: stateless #session是无状态的  每次链接都是作为一个新用户

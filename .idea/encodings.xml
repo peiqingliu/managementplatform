@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microsercice-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microsercice-core/core-beans" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microsercice-core/core-commons" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microsercice-core/core-configuration" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microsercice-core/core-exception" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-api/system-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-business" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-business/business-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-business/business-commons" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-commons" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-commons/commons-base" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-commons/commons-utils" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-system" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-system/system-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-system/system-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-system/system-gateway" charset="UTF-8" />
+  </component>
+</project>
