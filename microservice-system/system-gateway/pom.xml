@@ -22,10 +22,11 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <!--system 相关feign api -->
+        <!--system 相关feign api 如果是两个不通模块的bean相互引用的话，首先需要引入jar,然后在启动类上加上另一个模块的顶级包目录 -->
+
         <dependency>
             <groupId>com.wuqianqian.practice</groupId>
-            <artifactId>microservice-api</artifactId>
+            <artifactId>system-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

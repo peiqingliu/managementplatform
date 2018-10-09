@@ -4,8 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
 /**
@@ -23,6 +27,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 @EnableZuulProxy  //开启网关
 @EnableFeignClients
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@ComponentScan(basePackages = {"com.wuqianqian.springcloud", "com.wuqianqian.core.configuration", "com.wuqianqian.system.api"})
 public class GateWayApplication extends SpringBootServletInitializer {
 
     @Override
@@ -32,5 +37,10 @@ public class GateWayApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(GateWayApplication.class,args);
+    }
+
+    @Bean
+    LoadBalancerInterceptor loadBalancerInterceptor(LoadBalancerClient loadBalance) {
+        return new LoadBalancerInterceptor(loadBalance);
     }
 }

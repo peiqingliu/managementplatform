@@ -49,10 +49,16 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <!--调用公共模块-->
+        <!--调用公共模块 utils-->
         <dependency>
             <groupId>com.wuqianqian.practice</groupId>
             <artifactId>commons-utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--调用公共模块 base-->
+        <dependency>
+            <groupId>com.wuqianqian.practice</groupId>
+            <artifactId>commons-base</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
